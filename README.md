@@ -11,18 +11,39 @@ bootstrap comme framework css
 assetics pour la gestion des fichiers annexes
 Doctrine Fixtures pour la génération de contenu
 
+##INSTALLATION##
 
-###Installation :###
+###Installation Symfony :###
 
-Créez le Namespace WEB (app/src/WEB/) et intégrez-y le Bundle que vous venez de télécharger.
+`php app/console generate:bundle --namespace=WEB/CrowdBundle --format=yml`
+
+Remplacez le dossier WEB par celui que vous venez de télécharger
 
 Ajoutez une route vers ce Bundle en modifiant le fichier app/config/rounting.yml.
 Voici un exemple : 
 
-web_crowd:
+`web_crowd:
     resource: "@WEBCrowdBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /`
 
-Publiez les fichiers de ce bondle dans votre dossier web grâce à la commande : php app/console assets:install web/ --symlink
+Publiez les fichiers de ce bondle dans votre dossier web grâce à la commande : `php app/console assets:install web/ --symlink`
 
 En cas de souci, videz le cache grâce à php app/console cache:clear puis relancez le serveur
+
+
+###Installation en dur :###
+
+Créez le Namespace WEB (app/src/WEB/) et intégrez-y le Bundle que vous venez de télécharger.
+
+Ajoutez la ligne `new WEB\CrowdBundle\WEBCrowdBundle(),` à votre fichier AppKernel.php
+
+Ajoutez une route vers ce Bundle en modifiant le fichier app/config/rounting.yml.
+Voici un exemple : 
+
+`web_crowd:
+    resource: "@WEBCrowdBundle/Resources/config/routing.yml"
+    prefix:   /`
+
+Publiez les fichiers de ce bondle dans votre dossier web grâce à la commande : `php app/console assets:install web/ --symlink`
+
+En cas de souci, videz le cache grâce à `php app/console cache:clear` puis relancez le serveur
