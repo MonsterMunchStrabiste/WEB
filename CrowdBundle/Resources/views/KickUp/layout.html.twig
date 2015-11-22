@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}symblog{% endblock %} - KickUp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  {% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('bundles/webcrowd/css/bootstrap.min.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ asset('bundles/webcrowd/css/reset.css') }}" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ asset('bundles/webcrowd/css/surcharge.css') }}" type="text/css" media="screen" />
+  {% endblock %}
+</head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="#">Project name</a> </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{{ path('web_crowd_homepage') }}">Home</a></li>
+            <li><a href="{{ path('web_crowd_about') }}">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Default</a></li>
+            <li><a href="#">Static top</a></li>
+            <li><a href="#">Fixed top</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+{% block body %}{% endblock %}
+</footer>
+</div>
+{% block javascripts %}
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="{{ asset('bundles/webcrowd/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/webcrowd/js/respond.min.js') }}"></script>
+<script src="{{ asset('bundles/webcrowd/js/holder.js') }}"></script>
+{% endblock %}
+</body>
+</html>

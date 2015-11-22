@@ -1,0 +1,11 @@
+web_crowd_hello:
+    path:     /hello/{name}
+    defaults: { _controller: WEBCrowdBundle:Default:index }
+
+web_crowd_homepage:
+    path:     /yeah
+    defaults: { _controller: WEBCrowdBundle:KickUp:index }
+
+web_crowd_about:
+    path:     /about
+    defaults: { _controller: WEBCrowdBundle:KickUp:about }

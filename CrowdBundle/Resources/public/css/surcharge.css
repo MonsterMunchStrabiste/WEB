@@ -1,0 +1,88 @@
+body {
+  font-size: 10px;
+}
+
+/*[class*="col-"], footer {
+  background-color: lightgreen;
+  padding: 0px;
+  border: 2px solid black;
+  border-radius: 6px;
+  line-height: 40px;
+  text-align: center;
+}*/
+
+/*.bar-nav {
+	background-color: #777777;
+}
+
+.navbar-collapse {
+	font-family: Dosis, sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+a:hover {
+		color: red;
+}*/
+
+[class*="col-"], footer {
+  text-align: center;
+}
+
+.post {
+	padding: 15px 25px;
+
+}
+
+img.apercu {
+  margin: 0px;
+  margin-bottom: 15px;
+  /*border: 1px solid black;*/
+	border-radius: 6px 6px 0px 0px;
+}
+
+ul.menu-vertical {
+	padding: 0px 15px;
+	margin: 0px;
+	border-left: 1px solid gray;
+	border-radius: 0px;
+	line-height: 1.2;
+	font-size: 14px;
+	text-align: left;
+
+}
+
+div.post {
+	padding: 0px 15px;
+	margin: 0px;
+	border: 1px solid gray;
+	border-radius: 8px;
+}
+
+.apercu {
+	text-align: left;
+	line-height: 1.2;
+}
+
+[class*="col-"] .objectifs {
+	padding: 0px;
+	line-height: 1.2;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.progress {
+	padding: 0px;
+	margin: 5px 0px;
+	height: 10px;
+}
+
+.progress-bar {
+	width: 50%;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
