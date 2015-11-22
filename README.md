@@ -1,6 +1,7 @@
 # WEB
 
 Bundle réalisé par Alexandre VILLA et Alexandre RASTEL
+======================================================
 
 Voici les composants exploités :
 
@@ -11,7 +12,9 @@ assetics pour la gestion des fichiers annexes
 Doctrine Fixtures pour la génération de contenu
 
 
-Installation : Créez le Namespace WEB (app/src/WEB/) et intégrez-y le Bundle que vous venez de télécharger.
+###Installation :###
+
+Créez le Namespace WEB (app/src/WEB/) et intégrez-y le Bundle que vous venez de télécharger.
 
 Ajoutez une route vers ce Bundle en modifiant le fichier app/config/rounting.yml.
 Voici un exemple : 
