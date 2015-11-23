@@ -1,7 +1,3 @@
-web_crowd_hello:
-    path:     /hello/{name}
-    defaults: { _controller: WEBCrowdBundle:Default:index }
-
 web_crowd_homepage:
     path:     /yeah
     defaults: { _controller: WEBCrowdBundle:KickUp:index }
@@ -9,3 +5,13 @@ web_crowd_homepage:
 web_crowd_about:
     path:     /about
     defaults: { _controller: WEBCrowdBundle:KickUp:about }
+
+web_crowd_contact:
+    path:     /contact
+    defaults: { _controller: WEBCrowdBundle:KickUp:contact }
+    requirements:
+
+
+web_crowd_hello:
+    path:     /hello/{name}
+    defaults: { _controller: WEBCrowdBundle:Default:index }

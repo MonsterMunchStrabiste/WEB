@@ -1,0 +1,110 @@
+{% extends 'WEBCrowdBundle::layout.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+<div class="well">
+	<form class="form-horizontal">
+		<fieldset>
+
+			<!-- Form Name -->
+			<legend>Nous contacter</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputName">Nom</label>  
+				<div class="col-md-5">
+					<input id="inputName" name="inputName" type="text" placeholder="BACH" class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputFirst">Prénom</label>  
+				<div class="col-md-5">
+					<input id="inputFirst" name="inputFirst" type="text" placeholder="Jean-Sébastien" class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputTitle">Titre de la collecte</label>  
+				<div class="col-md-5">
+					<input id="inputTitle" name="inputTitle" type="text" placeholder="Financez mon prochain chef d" class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputCat">Catégorie</label>
+				<div class="col-md-5">
+					<select id="inputCat" name="inputCat" class="form-control">
+						<option value="">Culture</option>
+						<option value="">Sport</option>
+						<option value="">Technologie</option>
+						<option value="">Humanitaire</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Textarea -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputDesc">Brève description</label>
+				<div class="col-md-4">                     
+					<textarea class="form-control input-md" id="inputDesc" name="inputDesc"></textarea>
+				</div>
+			</div>
+
+			<!-- Date input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputEnd">Date de fin de collecte</label>  
+				<div class="col-md-5">
+					<input id="inputEnd" name="inputEnd" type="date" placeholder="" class="form-control input-md" required="">
+
+				</div>
+			</div>
+
+			<!-- Appended Input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputObj">Objectif chiffé</label>
+				<div class="col-md-5">
+					<div class="input-group">
+						<input id="inputObj" name="inputObj" class="form-control" placeholder="100000000" type="text" required="">
+						<span class="input-group-addon">€</span>
+					</div>
+
+				</div>
+			</div>
+			<!-- Appended Input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputCol">Dont déjà collectés</label>
+				<div class="col-md-5">
+					<div class="input-group">
+						<input id="inputCol" name="inputCol" class="form-control" placeholder="2500000" type="text" required="">
+						<span class="input-group-addon">€</span>
+					</div>
+
+				</div>
+			</div>
+			<!-- Button (Double) -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submitButton"></label>
+				<div class="col-md-8">
+					<button id="submitButton" name="submitButton" class="btn btn-success">Envoyer</button>
+					<button id="cancelButton" name="cancelButton" class="btn btn-danger">Annuler</button>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	{% endblock %}

@@ -14,4 +14,8 @@ class KickUpController extends Controller
     {
         return $this->render('WEBCrowdBundle:KickUp:about.html.twig');
     }
+        public function contactAction()
+    {
+        return $this->render('WEBCrowdBundle:KickUp:contact.html.twig');
+    }
 }
