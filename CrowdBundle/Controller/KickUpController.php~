@@ -77,7 +77,7 @@ public function editAction($id)
       return $this->redirect($this->generateUrl('web_crowd_view', array('id' => $advert->getId())));
     }*/
 
-    return $this->render('WEBCrowdBundle:KickUp:view.html.twig', array(
+    return $this->render('WEBCrowdBundle:KickUp:index.html.twig', array(
   //    'form'   => $form->createView(),
       'advert' => $advert // Je passe également l'annonce à la vue si jamais elle veut l'afficher
     ));
@@ -98,7 +98,7 @@ public function editAction($id)
       $em->flush();
       $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
       return $this->redirect($this->generateUrl('web_crowd_homepage'));
-  //  }
+    }
     // Si la requête est en GET, on affiche une page de confirmation avant de supprimer
     return $this->render('WEBCrowdBundle:KickUp:index.html.twig', array(
       'advert' => $advert
