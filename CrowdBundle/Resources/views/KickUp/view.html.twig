@@ -1,0 +1,26 @@
+{% extends 'WEBCrowdBundle::layout.html.twig' %}
+
+{% block title %}  
+	Lecture d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron under-navbar">
+  <div class="container">
+    <h1>Projet web</h1>
+    <p>Notre plateforme de crowdfounding n'est pas nouvelle mais elle est originale</p>
+    <p><a href="{{ path('web_crowd_about') }}" class="btn btn-primary btn-lg">Learn more</a></p>
+</div>
+</div>
+ <h2>{{ advert.title }}</h2>
+  <i>Par {{ advert.Nom }} {{ advert.Prenom}}</i>
+  <div class="well">
+    {{ advert.content }}
+  </div>
+  <p>
+    <a href="{{ path('web_crowd_homepage') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste
+    </a>
+  </p>
+{% endblock %}
