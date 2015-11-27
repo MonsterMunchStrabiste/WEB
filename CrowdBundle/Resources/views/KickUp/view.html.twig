@@ -5,18 +5,42 @@
 {% endblock %}
 
 {% block body %}
-<div class="jumbotron under-navbar">
+
+
+
+<!--<div class="jumbotron under-navbar">
   <div class="container">
     <h1>Projet web</h1>
     <p>Notre plateforme de crowdfounding n'est pas nouvelle mais elle est originale</p>
     <p><a href="{{ path('web_crowd_about') }}" class="btn btn-primary btn-lg">Learn more</a></p>
 </div>
-</div>
- <h2>{{ advert.title }}</h2>
-  <i>Par {{ advert.Nom }} {{ advert.Prenom}}</i>
-  <div class="well">
-    {{ advert.content }}
+</div>-->
+</br>
+</br>
+</br>
+</br>
+<div class="container">
+  <div class="row">
+    <section class="col-xs-6 col-md-4 col-lg-4 post">
+      <div id="c1" class="post">
+        <div class="row appercu">
+          <img src="{{ asset('bundles/webcrowd/images/2.jpg') }}" alt="Tigre" class="apercu img-responsive">
+      </div>
+      <p class="apercu"><strong>{{ advert.title }}</strong></br>Par {{ advert.Nom }} {{ advert.Prenom}}</p>
+      <p class="apercu">{{ advert.content }}</p>
+      <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
+      <div class="progress">
+          <div class="progress-bar active" style="width: 60%"></div>
+      </div>
+      <div class="row">
+          <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
+          <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
+          <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
+      </div>
   </div>
+</div>
+
+
   <p>
     <a href="{{ path('web_crowd_homepage') }}" class="btn btn-default">
       <i class="glyphicon glyphicon-chevron-left"></i>
@@ -32,4 +56,6 @@
       Supprimer l'annonce
     </a>
   </p>
+</div>
+
 {% endblock %}

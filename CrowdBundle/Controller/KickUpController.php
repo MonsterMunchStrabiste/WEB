@@ -22,6 +22,9 @@ class KickUpController extends Controller
 	      ->getRepository('WEBCrowdBundle:Advert')
 	      ->getAdverts($page, $nbPerPage)
 	    ;
+      if ($listAdverts === null) {
+        throw $this->createNotFoundException("Il n'y a pas d'annonces");
+      }
 	    $nbPages = ceil(count($listAdverts)/$nbPerPage);
 	    if ($page > $nbPages) {
 	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");

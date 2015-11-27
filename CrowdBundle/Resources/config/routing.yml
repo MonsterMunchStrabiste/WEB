@@ -13,10 +13,10 @@ web_crowd_homepage:
     path:     /{page}
     defaults: { _controller: WEBCrowdBundle:KickUp:index, page : 1 }
 web_crowd_view:
-    path:     /Page/{id}
+    path:     /projet/{id}
     defaults: { _controller: WEBCrowdBundle:KickUp:view}
     requirements:
-        id:  \d+  
+        id:  \d 
 web_crowd_edit:
     path:     /edit/{id}
     defaults: { _controller: WEBCrowdBundle:KickUp:edit}
