@@ -28,6 +28,13 @@ Voici un exemple :
 
 Publiez les fichiers de ce bondle dans votre dossier web grâce à la commande : `php app/console assets:install web/ --symlink`
 
+Exporter le schéma d'entités vers votre base de données avec les commandes `php app/console doctrine:database:create   
+php app/console doctrine:schema:update --dump-sql   
+php app/console doctrine:schema:update --force`
+
+Vous pouvez à présent lancer votre projet avec la commande `php app/console server:run`
+
+
 En cas de souci, videz le cache grâce à php app/console cache:clear puis relancez le serveur
 
 
