@@ -41,7 +41,7 @@
         <a href="{{ path('web_crowd_view', {'id': advert.id}) }}">
           {{ advert.title }}
         </a>
-        par {{ advert.nom }}{{ advert.prenom }},
+        par {{ advert.author }},
         le {{ advert.date|date('d/m/Y') }}
       </li>
     {% else %}
