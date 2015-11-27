@@ -49,12 +49,12 @@ class Advert
      */
     private $content;
 
-//    /**
-//     * @var \DateTime
-//     *
-//     * @ORM\Column(name="Date", type="datetime")
-//     */
-//    private $date;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date", type="datetime")
+     */
+    private $date;
 
     /**
      * @var integer
@@ -74,6 +74,10 @@ class Advert
      * @ORM\Column(name="published", type="boolean")
      */
     private $published = true;
+    public function __construct()
+    {
+	$this->date	=new \Datetime();
+    }
     /**
      * Get id
      *

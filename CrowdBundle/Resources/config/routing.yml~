@@ -17,9 +17,21 @@ web_crowd_view:
     defaults: { _controller: WEBCrowdBundle:KickUp:view}
     requirements:
         id:  \d+  
-
-
-
+web_crowd_edit:
+    path:     /edit/{id}
+    defaults: { _controller: WEBCrowdBundle:KickUp:edit}
+    requirements:
+        id:  \d+
+web_crowd_delete:
+    path:     /delete/{id}
+    defaults: { _controller: WEBCrowdBundle:KickUp:delete}
+    requirements:
+        id:  \d+   
+web_crowd_view:
+    path:     /delete/{id}
+    defaults: { _controller: WEBCrowdBundle:KickUp:delete}
+    requirements:
+        id:  \d+  
 web_crowd_hello:
     path:     /hello/{name}
     defaults: { _controller: WEBCrowdBundle:Default:index }

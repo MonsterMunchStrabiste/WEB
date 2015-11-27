@@ -4,8 +4,11 @@ namespace WEB\CrowdBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use WEB\CrowdBundle\Entity\Advert;
+use WEB\CrowdBundle\Form\AdvertType;
+use WEB\CrowdBundle\Form\AdvertEditType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException
 class KickUpController extends Controller
 {
 	public function indexAction($page)
@@ -41,44 +44,40 @@ class KickUpController extends Controller
 
 	public function addAction(Request $request)
 	  {
-	    /*$advert = new Advert();
-	    $advert->setTitle('Symfony2.');
-	    $advert->setNom('Villa');
-	    $advert->setPrenom('Alexandre');
-	    $advert->setContent("Cree votre propre projet");
-	    $advert->setObjectif('1000');	
-	    $advert->setCollecte('1000');
+   	 $advert = new Advert();
+  	 $form = $this->get('form.factory')->create(new AdvertType(), $advert);
+
+	 if ($form->handleRequest($request)->isValid()) {
 	    $em = $this->getDoctrine()->getManager();
 	    $em->persist($advert);
-	    $em->flush();*/
-	    if ($request->isMethod('POST')) {
-	      $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
-	      return $this->redirect($this->generateUrl('web_crowd_homepage', array('id' => $advert->getId())));
-	    }
-	    return $this->render('WEBCrowdBundle:KickUp:contact.html.twig');
+	    $em->flush();
+
+	    $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+
+	    return $this->redirect($this->generateUrl('web_crowd_view', array('id' => $advert->getId())));
+	}
+	    return $this->render('WEBCrowdBundle:KickUp:add.html.twig', array(
+      'form' => $form->createView(),));
 	  }
-public function editAction($id)
+public function editAction($id, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
     $advert = $em->getRepository('WEBCrowdBundle:Advert')->find($id);
-
     if (null === $advert) {
       throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
     }
-
-/*    $form = $this->createForm(new AdvertEditType(), $advert);
+    $form = $this->createForm(new AdvertEditType(), $advert);
 
     if ($form->handleRequest($request)->isValid()) {
-      // Inutile de persister ici, Doctrine connait déjà notre annonce
       $em->flush();
 
       $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
 
       return $this->redirect($this->generateUrl('web_crowd_view', array('id' => $advert->getId())));
-    }*/
+    }
 
-    return $this->render('WEBCrowdBundle:KickUp:index.html.twig', array(
-  //    'form'   => $form->createView(),
+    return $this->render('WEBCrowdBundle:KickUp:edit.html.twig', array(
+      'form'   => $form->createView(),
       'advert' => $advert // Je passe également l'annonce à la vue si jamais elle veut l'afficher
     ));
   }
@@ -90,19 +89,17 @@ public function editAction($id)
     if (null === $advert) {
       throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
     }
-    // On crée un formulaire vide, qui ne contiendra que le champ CSRF
-    // Cela permet de protéger la suppression d'annonce contre cette faille
-//    $form = $this->createFormBuilder()->getForm();
-//    if ($form->handleRequest($request)->isValid()) {
+    $form = $this->createFormBuilder()->getForm();
+    if ($form->handleRequest($request)->isValid()) {
       $em->remove($advert);
       $em->flush();
       $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
       return $this->redirect($this->generateUrl('web_crowd_homepage'));
     }
-    // Si la requête est en GET, on affiche une page de confirmation avant de supprimer
-    return $this->render('WEBCrowdBundle:KickUp:index.html.twig', array(
+   
+    return $this->render('WEBCrowdBundle:KickUp:delete.html.twig', array(
       'advert' => $advert
-      //,'form'   => $form->createView()
+      ,'form'   => $form->createView()
     ));
   }
 

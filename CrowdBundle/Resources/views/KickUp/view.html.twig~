@@ -22,5 +22,14 @@
       <i class="glyphicon glyphicon-chevron-left"></i>
       Retour à la liste
     </a>
+        <a href="{{ path('web_crowd_edit') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Editer l'annonce
+    </a>
+    </a>
+        <a href="{{ path('web_crowd_delete') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Supprimer l'annonce
+    </a>
   </p>
 {% endblock %}

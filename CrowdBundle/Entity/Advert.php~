@@ -49,12 +49,12 @@ class Advert
      */
     private $content;
 
-//    /**
-//     * @var \DateTime
-//     *
-//     * @ORM\Column(name="Date", type="datetime")
-//     */
-//    private $date;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Date", type="datetime")
+     */
+    private $date;
 
     /**
      * @var integer
