@@ -1,0 +1,18 @@
+{% extends "WEBCrowdBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier une annonce - {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="jumbotron under-navbar">
+	<h2>Modifier une annonce</h2>
+        {{ include("WEBCrowdBundle:KickUp:form.html.twig") }}
+</div>
+  <p>
+    <a href="{{ path('web_crowd_view', {'id': advert.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à l'annonce
+    </a>
+  </p>
+
+{% endblock %}
