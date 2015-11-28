@@ -6,7 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+//use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdvertType extends AbstractType
 {
@@ -17,15 +18,15 @@ class AdvertType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
+            ->add('title', 'text', ['label'=> 'Titre de la collecte','attr' => [ 'class' => 'form-control input-md', 'placeholder' => 'BACH', 'required' => '']])
             ->add('nom')
             ->add('prenom')
             ->add('content')
-            ->add('date', 'date', array('input' => 'datetime', 'widget' => 'choice'))
+            ->add('endDate', 'date', array('input' => 'datetime', 'widget' => 'single_text', 'format' => 'dd/MM/yyyy',))
             ->add('objectif')
             ->add('collecte')
             ->add('published')
-            ->add('save',      'submit')
+            ->add('save', 'submit')
         ;
 	$builder->addEventListener(
       FormEvents::PRE_SET_DATA,    // 1er argument : L'évènement qui nous intéresse : ici, PRE_SET_DATA
@@ -53,7 +54,14 @@ class AdvertType extends AbstractType
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    /*public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'WEB\CrowdBundle\Entity\Advert'
+        ));
+    }*/
+
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'WEB\CrowdBundle\Entity\Advert'

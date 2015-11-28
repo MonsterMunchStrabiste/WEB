@@ -1,13 +1,3 @@
-{#{% extends 'WEBCrowdBundle::layout.html.twig' %}
-
-{% block title %}  
-	Ajout d'une annonce - {{ parent() }}
-{% endblock %}
-
-{% form_theme form _self %}
-
-{% block body %}#}
-
 </br>
 </br>
 </br>
@@ -15,7 +5,7 @@
 </br>
 <div class="container">
 <div class="well">
-	<form class="form-horizontal">
+	<div class="form-horizontal">
 		<fieldset>
 
 {#<!--{% form_theme form _self %}
@@ -26,10 +16,6 @@
     </div>
 {% endblock %}
 -->#}
-
-
-
-
 			<!-- Form Name -->
 			<legend>Ajouter une annonce</legend>
 {{ form_start(form) }}
@@ -89,6 +75,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="form_date">Date de fin de collecte</label>  
 				<div class="col-md-5">
+				{{ form_widget(form.endDate, { 'attr': {'class': 'form-control input-md', 'placeholder': '12/12/2012', 'required': '', 'type': 'date'} }) }}
 				{#<!--{{ form_datetime(form.date)}}
 				{{ form_widget(form.date, { 'attr': {'class': 'form-control input-md', 'required': '', 'type': 'date'} }) }}
 {{ form_widget(form.date.year) }}-->
@@ -128,16 +115,15 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="submitButton"></label>
 				<div class="col-md-8">
-				{{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
-					<button id="submitButton" name="submitButton" class="btn btn-success">Envoyer</button>
-					<button id="cancelButton" name="cancelButton" class="btn btn-danger">Annuler</button>
+					{{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+					<button href='{{ path('web_crowd_homepage') }}' id="cancelButton" name="cancelButton" class="btn btn-danger">Annuler</button>
 				</div>
 			</div>
 			<!--{{ form_widget(form.save) }}-->
 {{ form_end(form) }}
 		</fieldset>
 
-	</form>
+	</div>
 </div>
 </div>
 {#<!--{% endblock %}
@@ -155,4 +141,4 @@
         </div>
     {% endif %}
 {% endspaceless %}
-{% endblock datetime_widget %}#}-->
+{% endblock datetime_widget %}-->#}

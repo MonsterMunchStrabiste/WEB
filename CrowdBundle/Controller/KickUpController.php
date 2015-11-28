@@ -9,6 +9,9 @@ use WEB\CrowdBundle\Form\AdvertEditType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+
+
 class KickUpController extends Controller
 {
 	public function indexAction($page)
@@ -16,7 +19,7 @@ class KickUpController extends Controller
 	    if ($page < 1) {
 	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
 	    }
-	    $nbPerPage = 3;
+	    $nbPerPage = 6;
 	    $listAdverts = $this->getDoctrine()
 	      ->getManager()
 	      ->getRepository('WEBCrowdBundle:Advert')
@@ -29,12 +32,22 @@ class KickUpController extends Controller
 	    if ($page > $nbPages) {
 	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
 	    }
+
+      $pagination = array(
+                        'page' => $page,
+                        'route' => 'web_crowd_homepage',
+                        'pages_count' => $nbPages,
+                        'route_params' => array()
+                    );
+
 	    return $this->render('WEBCrowdBundle:KickUp:index.html.twig', array(
 	     'listAdverts' => $listAdverts,
 	      'nbPages'     => $nbPages,
-	      'page'        => $page
+	      'page'        => $page,
+        'pagination' => $pagination
 	    ));
 	  }    
+
 	public function viewAction($id)
 	  {
 	    $em = $this->getDoctrine()->getManager();
@@ -59,6 +72,7 @@ class KickUpController extends Controller
 
 	    return $this->redirect($this->generateUrl('web_crowd_view', array('id' => $advert->getId())));
 	}
+      $request->getSession()->getFlashBag()->add('notice', 'Annonce non enregistrée.');
 	    return $this->render('WEBCrowdBundle:KickUp:add.html.twig', array(
       'form' => $form->createView(),));
 	  }
@@ -131,3 +145,5 @@ public function editAction($id, Request $request)
     ));
   }
 }
+
+

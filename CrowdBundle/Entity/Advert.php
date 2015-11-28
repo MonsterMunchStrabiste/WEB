@@ -52,9 +52,9 @@ class Advert
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Date", type="datetime")
+     * @ORM\Column(name="endDate", type="datetime")
      */
-    private $date;
+    private $endDate;
 
     /**
      * @var integer
@@ -186,9 +186,9 @@ class Advert
      * @param \DateTime $date
      * @return Advert
      */
-    public function setDate($date)
+    public function setEndDate($endDate)
     {
-        $this->date = $date;
+        $this->endDate = $endDate;
 
         return $this;
     }
@@ -198,9 +198,9 @@ class Advert
      *
      * @return \DateTime 
      */
-    public function getDate()
+    public function getEndDate()
     {
-        return $this->date;
+        return $this->endDate;
     }
 
     /**
