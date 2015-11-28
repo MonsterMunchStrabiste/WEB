@@ -4,125 +4,45 @@
 <div class="jumbotron under-navbar">
   <div class="container">
     <h1>Projet web</h1>
-    <p>Notre plateforme de crowdfounding n'est pas nouvelle mais elle est originale</p>
-    <p><a href="{{ path('web_crowd_about') }}" class="btn btn-primary btn-lg">Learn more</a></p>
-</div>
-</div>
-<br />
-<br />
-<div class="container">
-  <div class="row vertical-align">
-      <div class="well well-sm  clearfix col-xs-12"><h5 class="col-md-10"> Vous avez un super projet ? </h3><button type="button" class="col-offset-10 btn">Soumettez-le !</button></div>
+    <p>Notre plateforme de crowdfounding n'est pas révolutionnaire mais elle est originale</p>
+    <p><a href="{{ path('web_crowd_about') }}" class="btn btn-primary btn-lg">Ah bon ?!</a></p>
   </div>
+</div>
+<br />
+<br />
+<div class="row vertical-align">
+  <div class="container">
+    <div class="well well-sm  clearfix col-xs-12"><h5 class="col-md-10"> Vous avez un super projet ? </h5><a href="{{ path('web_crowd_add') }}"><button type="button" class="col-offset-10 btn">Soumettez-le !</button></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
   <div class="row">
+    {% for advert in listAdverts %}
     <section class="col-xs-6 col-md-4 col-lg-4 post">
       <div id="c1" class="post">
         <div class="row appercu">
           <img src="{{ asset('bundles/webcrowd/images/2.jpg') }}" alt="Tigre" class="apercu img-responsive">
-      </div>
-      <p class="apercu"><strong>{{ advert.title }}</strong></br>Par {{ advert.Nom }} {{ advert.Prenom}}</p>
-      <p class="apercu">{{ advert.content }}</p>
-      <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-      <div class="progress">
+        </div>
+        <p class="apercu"><strong>{{ advert.title }}</strong></br>Par {{ advert.Nom }} {{ advert.Prenom}}</p>
+        <p class="apercu">{{ advert.content }}</p>
+        <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
+        <div class="progress">
           <div class="progress-bar active" style="width: 60%"></div>
-      </div>
-      <div class="row">
+        </div>
+        <div class="row">
           <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
           <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
           <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
+        </div>
       </div>
-  </div>
-</section>
-<section class="col-xs-6 col-md-4 col-lg-4 post">
-  <div class="post">
-    <div class="row appercu">
-      <img src="{{ asset('bundles/webcrowd/images/3.jpg') }}" alt="Tigre" class="apercu img-responsive">
-  </div>
-  <p class="apercu"><strong>Titre de la publication</strong></br>Sous titre</p>
-  <p class="apercu">Extrait de la publi goqebr gqe hse hsrht rth srthrht rth sewdfh seth r hse hsr tjh rtsj rthsrht srt hsrt hste hsrt hs rth srth srth srt hsr th srth rth srt hsth srth rt hs</p>
-  <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-  <div class="progress">
-      <div class="progress-bar"></div>
-  </div>
-  <div class="row">
-      <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
-      <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
-      <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
+    </section>
+    {% else %}
+    <div class="well">Pas (encore !) d'annonces</div>
+    {% endfor %}
   </div>
 </div>
-</section>
-<section class="col-xs-6 col-md-4 col-lg-4 post">
-  <div class="post">
-    <div class="row appercu">
-      <img src="{{ asset('bundles/webcrowd/images/1.jpg') }}" alt="Tigre" class="apercu img-responsive">
-  </div>
-  <p class="apercu"><strong>Titre de la publication</strong></br>Sous titre</p>
-  <p class="apercu">Extrait de la publi goqebr gqe hse hsrht rth srthrht rth sewdfh seth r hse hsr tjh rtsj rthsrht srt hsrt hste hsrt hs rth srth srth srt hsr th srth rth srt hsth srth rt hs</p>
-  <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-  <div class="progress">
-      <div class="progress-bar"></div>
-  </div>
-  <div class="row">
-      <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
-      <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
-      <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
-  </div>
-</div>
-</section>
-<section class="col-xs-6 col-md-4 col-lg-4 post">
-  <div class="post">
-    <div class="row appercu">
-      <img src="{{ asset('bundles/webcrowd/images/3.jpg') }}" alt="Tigre" class="apercu img-responsive">
-  </div>
-  <p class="apercu"><strong>Titre de la publication</strong></br>Sous titre</p>
-  <p class="apercu">Extrait de la publi goqebr gqe hse hsrht rth srthrht rth sewdfh seth r hse hsr tjh rtsj rthsrht srt hsrt hste hsrt hs rth srth srth srt hsr th srth rth srt hsth srth rt hs</p>
-  <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-  <div class="progress">
-      <div class="progress-bar"></div>
-  </div>
-  <div class="row">
-      <section class="col-lg-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
-      <section class="col-lg-4 objectifs"><strong>66%</strong></br>Financés</section>
-      <section class="col-lg-4 objectifs"><strong>67</strong></br>Jours restants</section>
-  </div>
-</div>
-</section>
-<section class="col-xs-6 col-md-4 col-lg-4 post">
-  <div class="post">
-    <div class="row appercu">
-      <img src="{{ asset('bundles/webcrowd/images/1.jpg') }}" alt="Tigre" class="apercu img-responsive">
-  </div>
-  <p class="apercu"><strong>Titre de la publication</strong></br>Sous titre</p>
-  <p class="apercu">Extrait de la publi goqebr gqe hse hsrht rth srthrht rth sewdfh seth r hse hsr tjh rtsj rthsrht srt hsrt hste hsrt hs rth srth srth srt hsr th srth rth srt hsth srth rt hs</p>
-  <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-  <div class="progress">
-      <div class="progress-bar"></div>
-  </div>
-  <div class="row">
-      <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
-      <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
-      <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
-  </div>
-</div>
-</section>
-<section class="col-xs-6 col-md-4 col-lg-4 post">
-  <div class="post">
-    <div class="row appercu">
-      <img src="{{ asset('bundles/webcrowd/images/2.jpg') }}" alt="Tigre" class="apercu img-responsive">
-  </div>
-  <p class="apercu"><strong>Titre de la publication</strong></br>Sous titre</p>
-  <p class="apercu">Extrait de la publi goqebr gqe hse hsrht rth srthrht rth sewdfh seth r hse hsr tjh rtsj rthsrht srt hsrt hste hsrt hs rth srth srth srt hsr th srth rth srt hsth srth rt hs</p>
-  <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
-  <div class="progress">
-      <div class="progress-bar"></div>
-  </div>
-  <div class="row">
-      <section class="col-sm-4 objectifs"><strong>7500€</strong></br>Nécessaires</section>
-      <section class="col-sm-4 objectifs"><strong>66%</strong></br>Financés</section>
-      <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
-  </div>
-</div>
-</section>
-</div>
-</div>
+
 {% endblock %}

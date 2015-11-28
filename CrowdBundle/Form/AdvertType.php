@@ -21,7 +21,7 @@ class AdvertType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('content')
-            ->add('date')
+            ->add('date', 'date', array('input' => 'datetime', 'widget' => 'choice'))
             ->add('objectif')
             ->add('collecte')
             ->add('published')

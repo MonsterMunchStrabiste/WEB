@@ -1,5 +1,158 @@
-<h3>Formulaire d'annonce</h3>
+{#{% extends 'WEBCrowdBundle::layout.html.twig' %}
 
+{% block title %}  
+	Ajout d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% form_theme form _self %}
+
+{% block body %}#}
+
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="container">
 <div class="well">
-  {{ form(form) }}
+	<form class="form-horizontal">
+		<fieldset>
+
+{#<!--{% form_theme form _self %}
+
+{% block _form_date_widget %}
+    <div class="text_widget">
+        {{ block('form_widget_simple') }}
+    </div>
+{% endblock %}
+-->#}
+
+
+
+
+			<!-- Form Name -->
+			<legend>Ajouter une annonce</legend>
+{{ form_start(form) }}
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_nom">Nom</label>  
+				<div class="col-md-5">
+				{{ form_widget(form.nom, { 'attr': {'class': 'form-control input-md', 'placeholder': 'BACH', 'required': '', 'type': 'text'} }) }}
+					{#<!--<input id="form_nom" name="form[nom]" type="text" placeholder="BACH" class="form-control input-md" required="">-->#}
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_prenom">Prénom</label>  
+				<div class="col-md-5">
+				{{ form_widget(form.prenom, { 'attr': {'class': 'form-control input-md', 'placeholder': 'Jean-Sébastien', 'required': '', 'type': 'text'} }) }}
+					<!--<input id="form_prenom" name="form[prenom]" type="text" placeholder="Jean-Sébastien" class="form-control input-md" required="">-->
+
+				</div>
+			</div>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_title">Titre de la collecte</label>  
+				<div class="col-md-5">
+				{{ form_widget(form.title, { 'attr': {'class': 'form-control input-md', 'placeholder': 'Financez mon prochain chef d', 'required': '', 'type': 'text'} }) }}
+					<!--<input id="form_title" name="form[title]" type="text" placeholder="Financez mon prochain chef d" class="form-control input-md" required="">-->
+
+				</div>
+			</div>
+
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="inputCat">Catégorie</label>
+				<div class="col-md-5">
+					<select id="inputCat" name="inputCat" class="form-control">
+						<option value="">Culture</option>
+						<option value="">Sport</option>
+						<option value="">Technologie</option>
+						<option value="">Humanitaire</option>
+					</select>
+				</div>
+			</div>
+
+			<!-- Textarea -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_content">Brève description</label>
+				<div class="col-md-4">
+				{{ form_widget(form.content, { 'attr': {'class': 'form-control', 'required': '', 'type': 'textarea'} }) }}
+					<!--<textarea class="form-control input-md" id="form_content" name="form[content}"></textarea>-->
+				</div>
+			</div>
+
+			<!-- Date input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_date">Date de fin de collecte</label>  
+				<div class="col-md-5">
+				{#<!--{{ form_datetime(form.date)}}
+				{{ form_widget(form.date, { 'attr': {'class': 'form-control input-md', 'required': '', 'type': 'date'} }) }}
+{{ form_widget(form.date.year) }}-->
+				  <!-- { form_widget(form.task.year, { 'attr': {'class': 'task_field'})}
+    form_widget(form.task.month)
+    form_widget(form.task.day)-->
+					<!--<input id="form_date" name="form[date]" type="date" placeholder="" class="form-control input-md" required="">-->
+#}
+				</div>
+			</div>
+
+			<!-- Appended Input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_objectif">Objectif chiffé</label>
+				<div class="col-md-5">
+					<div class="input-group">
+					{{ form_widget(form.objectif, { 'attr': {'class': 'form-control', 'placeholder': '100000000', 'required': '', 'type': 'number'} }) }}
+						<!--<input id="form_objectif" name="form[objectif]" class="form-control" placeholder="100000000" type="number" required="">-->
+						<span class="input-group-addon">€</span>
+					</div>
+
+				</div>
+			</div>
+			<!-- Appended Input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="form_collecte">Dont déjà collectés</label>
+				<div class="col-md-5">
+					<div class="input-group">
+					{{ form_widget(form.collecte, { 'attr': {'class': 'form-control', 'placeholder': '25000000', 'required': '', 'type': 'number'} }) }}
+						<!--<input id="form_collecte" name="form[collecte]" class="form-control" placeholder="2500000" type="number" required="">-->
+						<span class="input-group-addon">€</span>
+					</div>
+
+				</div>
+			</div>
+			<!-- Button (Double) -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="submitButton"></label>
+				<div class="col-md-8">
+				{{ form_widget(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+					<button id="submitButton" name="submitButton" class="btn btn-success">Envoyer</button>
+					<button id="cancelButton" name="cancelButton" class="btn btn-danger">Annuler</button>
+				</div>
+			</div>
+			<!--{{ form_widget(form.save) }}-->
+{{ form_end(form) }}
+		</fieldset>
+
+	</form>
 </div>
+</div>
+{#<!--{% endblock %}
+
+{% block datetime_widget %}
+{% spaceless %}
+    {% if widget == 'single_text' %}
+        {{ block('field_widget') }}
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            {{ form_errors(form.date) }}
+            {{ form_errors(form.time) }}
+            {{ form_widget(form.date) }}
+            {{ form_widget(form.time, { 'attr': {'class': 'datetime rangeDataInicio', 'placeholder': 'dd/mm/aaaa'} }) }}
+        </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock datetime_widget %}#}-->
