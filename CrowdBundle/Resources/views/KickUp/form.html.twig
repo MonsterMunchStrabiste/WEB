@@ -17,7 +17,6 @@
 {% endblock %}
 -->#}
 			<!-- Form Name -->
-			<legend>Ajouter une annonce</legend>
 {{ form_start(form) }}
 			<!-- Text input-->
 			<div class="form-group">
@@ -75,15 +74,7 @@
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="form_date">Date de fin de collecte</label>  
 				<div class="col-md-5">
-				{{ form_widget(form.endDate, { 'attr': {'class': 'form-control input-md', 'placeholder': '12/12/2012', 'required': '', 'type': 'date'} }) }}
-				{#<!--{{ form_datetime(form.date)}}
-				{{ form_widget(form.date, { 'attr': {'class': 'form-control input-md', 'required': '', 'type': 'date'} }) }}
-{{ form_widget(form.date.year) }}-->
-				  <!-- { form_widget(form.task.year, { 'attr': {'class': 'task_field'})}
-    form_widget(form.task.month)
-    form_widget(form.task.day)-->
-					<!--<input id="form_date" name="form[date]" type="date" placeholder="" class="form-control input-md" required="">-->
-#}
+				{{ form_widget(form.endDate, { 'attr': {'class': 'form-control input-md','format': 'd/m/Y', 'placeholder': '12/12/2012', 'required': '', 'type': 'date'} }) }}
 				</div>
 			</div>
 

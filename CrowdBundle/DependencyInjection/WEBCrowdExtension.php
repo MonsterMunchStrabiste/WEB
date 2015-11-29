@@ -22,6 +22,9 @@ class WEBCrowdExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        //$twig = new Twig_Environment($loader);
+        //$twig->addExtension(new Twig_Extensions_Extension_Date());
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

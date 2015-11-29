@@ -16,7 +16,7 @@ web_crowd_view:
     path:     /projet/{id}
     defaults: { _controller: WEBCrowdBundle:KickUp:view}
     requirements:
-        id:  \d 
+        id:  \d+
 web_crowd_edit:
     path:     /edit/{id}
     defaults: { _controller: WEBCrowdBundle:KickUp:edit}

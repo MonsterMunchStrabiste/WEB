@@ -21,22 +21,23 @@
 
   <div class="row">
     {% for advert in listAdverts %}
-    {% set pourcent = advert.collecte/advert.objectif*100 %}
+    {% set pourcent = (advert.collecte/advert.objectif*100)|round(0, 'ceil') %}
+    {% set random = random(2)+1 %}
     <section class="col-xs-6 col-md-4 col-lg-4 post">
       <div id="c1" class="post">
         <div class="row appercu">
-          <img href='#' src="{{ asset('bundles/webcrowd/images/2.jpg') }}" alt="Tigre" class="apercu img-responsive">
+          <a href='{{ path('web_crowd_view', { 'id': advert.id }) }}'><img src="{{ asset('bundles/webcrowd/images/2.jpg') }}" alt="Tigre" class="apercu img-responsive"></a>
         </div>
         <p class="apercu"><strong>{{ advert.title }}</strong></br>Par {{ advert.Nom }} {{ advert.Prenom}}</p>
-        <p class="apercu">{{ advert.content }}</p>
-        <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>  Paris, France</p>
+        <p class="apercu">{{ advert.content }}</br>{{ advert.endDate|date("d/m/Y") }} {{ "now"|date("d/m/Y") }}</p>
+        <p class="apercu"><span class="glyphicon glyphicon-map-marker apercu"></span>Paris, France</p>
         <div class="progress">
           <div class="progress-bar active" style="width: {{ pourcent }}%"></div>
         </div>
         <div class="row">
           <section class="col-sm-4 objectifs"><strong>{{ advert.objectif }}€</strong></br>Nécessaires</section>
           <section class="col-sm-4 objectifs"><strong>{{ pourcent }}%</strong></br>Financés</section>
-          <section class="col-sm-4 objectifs"><strong>67</strong></br>Jours restants</section>
+          <section class="col-sm-4 objectifs"><strong>{{ advert.diff|date("%d") }}</strong></br>Jours restants</section>
         </div>
       </div>
     </section>

@@ -22,12 +22,13 @@ class AdvertType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('content')
-            ->add('endDate', 'date', array('input' => 'datetime', 'widget' => 'single_text', 'format' => 'dd/MM/yyyy',))
+            ->add('endDate', 'datetime', array('widget' => 'single_text','html5' => 'true'))
             ->add('objectif')
             ->add('collecte')
             ->add('published')
             ->add('save', 'submit')
         ;
+
 	$builder->addEventListener(
       FormEvents::PRE_SET_DATA,    // 1er argument : L'évènement qui nous intéresse : ici, PRE_SET_DATA
       function(FormEvent $event) { // 2e argument : La fonction à exécuter lorsque l'évènement est déclenché

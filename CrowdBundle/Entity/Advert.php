@@ -3,6 +3,9 @@
 namespace WEB\CrowdBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+
 
 /**
  * Advert
@@ -20,6 +23,7 @@ class Advert
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
 
     /**
      * @var string
@@ -52,7 +56,7 @@ class Advert
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endDate", type="datetime")
+     * @ORM\Column(name="endDate", type="date")
      */
     private $endDate;
 
@@ -183,7 +187,7 @@ class Advert
     /**
      * Set date
      *
-     * @param \DateTime $date
+     * @param date $date
      * @return Advert
      */
     public function setEndDate($endDate)
@@ -202,6 +206,7 @@ class Advert
     {
         return $this->endDate;
     }
+
 
     /**
      * Set objectif
@@ -271,4 +276,11 @@ class Advert
     {
         return $this->published;
     }
+
+    public function getDiff()
+    {
+        $diff = date_diff(new \Datetime(), $this->endDate);
+        return $diff;
+    }
+
 }

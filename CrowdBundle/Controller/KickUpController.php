@@ -19,6 +19,7 @@ class KickUpController extends Controller
 	    if ($page < 1) {
 	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
 	    }
+
 	    $nbPerPage = 6;
 	    $listAdverts = $this->getDoctrine()
 	      ->getManager()
@@ -32,7 +33,6 @@ class KickUpController extends Controller
 	    if ($page > $nbPages) {
 	      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
 	    }
-
       $pagination = array(
                         'page' => $page,
                         'route' => 'web_crowd_homepage',
@@ -55,6 +55,7 @@ class KickUpController extends Controller
 	    if ($advert === null) {
 	      throw $this->createNotFoundException("L'annonce d'id ".$id." n'existe pas.");
 	    }
+
 	    return $this->render('WEBCrowdBundle:KickUp:view.html.twig', array('advert'=> $advert));
 	  }
 
@@ -66,6 +67,7 @@ class KickUpController extends Controller
 	 if ($form->handleRequest($request)->isValid()) {
 	    $em = $this->getDoctrine()->getManager();
 	    $em->persist($advert);
+      $advert->setDiff( new \DateTime() );
 	    $em->flush();
 
 	    $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
